@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Dashboard - Evaluación de Interfaces</title>
+
+  <!-- 1. Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 2. Configuración del tema (colores de marca exactos al mockup) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#22b9ff',
+              light: '#fff2ec',
+              hover: '#22b9ff',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- 3. Iconos Lucide CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- 4. Estilos y Fuentes Externas -->
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body
+  class="bg-[#f5f6fa] min-h-screen flex flex-col lg:flex-row text-slate-800 antialiased selection:bg-brand selection:text-white">
+
+  <!-- ======================================================================= -->
+  <!-- COLUMNA 1: BARRA DE NAVEGACIÓN LATERAL (Acoplada al borde izquierdo)    -->
+  <!-- ======================================================================= -->
+  <aside
+    class="w-full lg:w-24 bg-white border-b lg:border-b-0 lg:border-r border-slate-200/70 flex lg:flex-col items-center py-6 px-3 shrink-0 lg:min-h-screen lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto z-40">
+
+    <!-- Logo Mando Naranja con detalles blancos del diseño -->
+    <a href="#" class="text-brand hover:scale-105 transition cursor-pointer mb-6 lg:mb-8" title="Game Hub">
+      <svg class="w-12 h-10" viewBox="0 0 48 38" fill="none">
+        <path
+          d="M37 6H11C6 6 2 10 2 15v8c0 6 4.5 11 10.5 11h.5c1.8 0 3.4-.8 4.5-2.2l3-3.8h7l3 3.8c1.1 1.4 2.7 2.2 4.5 2.2h.5C41.5 34 46 29 46 23v-8c0-5-4-9-9-9z"
+          fill="#22b9ff" />
+        <!-- D-Pad White -->
+        <path d="M14 15h-2.5v3H9v2.5h2.5V23h2.5v-2.5H16.5V18H14v-3z" fill="white" />
+        <!-- Action Buttons White -->
+        <circle cx="33" cy="17" r="2" fill="white" />
+        <circle cx="37.5" cy="21.5" r="2" fill="white" />
+      </svg>
+    </a>
+
+    <!-- Menú de navegación continuo con espaciado uniforme y todos los iconos agrandados -->
+    <nav class="flex lg:flex-col items-center gap-3 sm:gap-3.5 w-full" aria-label="Navegación principal">
+      <!-- Item 1: Inicio (Activo con círculo naranja suave) -->
+      <a href="#"
+        class="w-14 h-14 rounded-full bg-brand-light text-brand flex items-center justify-center transition hover:scale-105 shadow-sm"
+        title="Inicio">
+        <i data-lucide="home" class="w-7 h-7"></i>
+      </a>
+      <!-- Item 2: Pantalla / Streams con antenas -->
+      <a href="#"
+        class="w-14 h-14 rounded-full text-slate-400 hover:text-brand hover:bg-slate-50 flex items-center justify-center transition"
+        title="Streams">
+        <i data-lucide="tv" class="w-7 h-7"></i>
+      </a>
+      <!-- Item 3: Mensajes -->
+      <a href="#"
+        class="w-14 h-14 rounded-full text-slate-400 hover:text-brand hover:bg-slate-50 flex items-center justify-center transition"
+        title="Mensajes">
+        <i data-lucide="message-square" class="w-7 h-7"></i>
+      </a>
+      <!-- Item 4: Favoritos -->
+      <a href="#"
+        class="w-14 h-14 rounded-full text-slate-400 hover:text-brand hover:bg-slate-50 flex items-center justify-center transition"
+        title="Favoritos">
+        <i data-lucide="star" class="w-7 h-7"></i>
+      </a>
+      <!-- Item 5: Comunidad -->
+      <a href="#"
+        class="w-14 h-14 rounded-full text-slate-400 hover:text-brand hover:bg-slate-50 flex items-center justify-center transition"
+        title="Comunidad">
+        <i data-lucide="users" class="w-7 h-7"></i>
+      </a>
+
+      <!-- Línea divisoria horizontal pegada con espaciado natural -->
+      <div class="hidden lg:block w-10 h-[1.5px] bg-slate-200/80 my-1"></div>
+
+      <!-- Ajustes y Salir directamente bajo el divisor -->
+      <button
+        class="w-14 h-14 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-50 flex items-center justify-center transition"
+        title="Configuración">
+        <i data-lucide="settings" class="w-7 h-7"></i>
+      </button>
+      
+      <button
+        class="w-14 h-14 rounded-full text-slate-400 hover:text-red-500 hover:bg-slate-50 flex items-center justify-center transition"
+        title="Cerrar sesión">
+        <i data-lucide="log-out" class="w-7 h-7"></i>
+      </button>
+    </nav>
+
+  </aside>
+
+  <!-- ======================================================================= -->
+  <!-- CONTENEDOR PRINCIPAL                     -->
+  <!-- ======================================================================= -->
+  <div class="flex-1 flex flex-col xl:flex-row gap-6 p-4 sm:p-6 lg:p-8 min-w-0">
+
+    <!-- ===================================================================== -->
+    <!-- COLUMNA 2: CONTENIDO CENTRAL                                          -->
+    <!-- ===================================================================== -->
+    <main class="flex-1 flex flex-col gap-6 min-w-0">
+
+        <!-- Buscador estilo píldora agrandado y prominente -->
+        <div class="relative w-full sm:w-[420px] md:w-[500px] lg:w-[560px] xl:w-[620px] flex-1 max-w-[640px]">
+          <i data-lucide="search" class="w-6 h-6 text-slate-400 absolute left-5 top-1/2 -translate-y-1/2"></i>
+          <input id="search-input" type="text" placeholder="Search games"
+            class="w-full bg-white pl-14 pr-6 py-4 rounded-full text-base sm:text-lg placeholder-slate-400 text-slate-700 shadow-sm border border-slate-100 focus:outline-none focus:ring-2 focus:ring-brand/30">
+        </div>
+
+        <!-- Botones de Notificación con iconos agrandados -->
+        <div class="flex items-center gap-4 self-end sm:self-auto">
+          <!-- Campana -->
+          <button
+            class="relative w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-slate-500 hover:text-brand shadow-sm transition border border-slate-100/60 p-3"
+            title="Notificaciones">
+            <i data-lucide="bell" class="w-7 h-7"></i>
+            <span
+              class="absolute -top-1 -right-1 w-5 h-5 bg-[#ff6922] text-white text-xs font-bold rounded-full flex items-center justify-center ring-2 ring-white shadow-sm z-10 leading-none">
+              1
+            </span>
+          </button>
+        </div>
+      </header>
+
+      <!-- BANNER HERO PRINCIPAL: "The Forbidden Kingdom: Adventure War" -->
+      <section class="relative h-80 sm:h-92 rounded-[32px] overflow-hidden shadow-md group">
+        <!-- Imagen de guerrera fantástica idéntica a la vista -->
+        <img src="https://www.game-ded.com/wordpress/wp-content/uploads/2020/12/1069-640x311.jpg"
+          alt="The Forbidden Kingdom"
+          class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <!-- Degradado oscuro a la izquierda -->
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent flex flex-col justify-center px-8 sm:px-14 text-white">
+          <div class="mb-4">
+            <span class="bg-white text-brand text-xs sm:text-sm font-bold px-4.5 py-2 rounded-full shadow-sm">
+              New Arrival
+            </span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-[46px] font-extrabold max-w-xl leading-tight mb-7 drop-shadow-sm">
+            The Forbidden Kingdom: <br><span class="font-normal text-slate-100">Adventure War</span>
+          </h1>
+          <div>
+            <!-- Botón Play Now agrandado -->
+            <button
+              class="bg-brand hover:bg-brand-hover text-white font-bold text-base sm:text-lg px-8 sm:px-9 py-4 rounded-2xl flex items-center gap-3.5 shadow-lg shadow-brand/35 transition hover:-translate-y-0.5">
+              <span>Play Now</span>
+              <span class="w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-xs">
+                <svg class="w-3.5 h-3.5 fill-[#ff6922] translate-x-[0.5px]" viewBox="0 0 24 24">
+                  <polygon points="6 3 20 12 6 21 6 3" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN: Most Popular Games -->
+      <section class="flex flex-col gap-4">
+        <div class="flex items-center justify-between">
+          <h2 class="font-extrabold text-2xl sm:text-3xl text-slate-800">Most Popular Games</h2>
+          <a href="#" class="text-base font-bold text-slate-400 hover:text-brand transition">See all</a>
+        </div>
+        <!-- Grid dinámico renderizado desde js/app.js con 4 tarjetas -->
+        <div id="popular-games-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-5"></div>
+      </section>
+
+      <!-- SECCIÓN: For You (Tarjeta blanca grande 2x2) -->
+      <section class="flex flex-col gap-4">
+        <div class="flex items-center justify-between">
+          <h2 class="font-extrabold text-2xl sm:text-3xl text-slate-800">For You</h2>
+          <a href="#" class="text-base font-bold text-slate-400 hover:text-brand transition">See all</a>
+        </div>
+        <div id="for-you-grid"
+          class="bg-white rounded-[32px] p-7 sm:p-8 shadow-sm border border-slate-150/70 grid grid-cols-1 md:grid-cols-2 gap-6">
+        </div>
+      </section>
+
+    </main>
+
+    
+    </aside>
+
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT EXTERNO                                                        -->
+  <!-- ========================================================================= -->
+  <script src="./js/app.js"></script>
+</body>
+
+</html>

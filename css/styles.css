@@ -1,0 +1,28 @@
+/* ==========================================================================
+   HOJA DE ESTILOS PERSONALIZADOS - GAMING DASHBOARD
+   ========================================================================== */
+
+/* 1. Importación de Fuente Moderna (Plus Jakarta Sans) */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --color-brand: #ff6922;
+  --color-brand-light: #fff2ec;
+}
+
+body {
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. Utilidad para ocultar barras de desplazamiento manteniendo scroll horizontal */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
